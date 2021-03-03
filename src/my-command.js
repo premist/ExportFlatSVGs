@@ -40,6 +40,12 @@ export default function() {
     let duplicatedLayers = []
     layers.forEach(layer => {
       let dup = layer.duplicate()
+
+      let symbolLayers = sketch.find('SymbolInstance', dup)
+      symbolLayers.forEach(symbolLayer => {
+        symbolLayer.detach({ recursively: true })
+      })
+
       let textLayers = sketch.find('Text', dup)
       textLayers.forEach(textLayer => {
         textLayer.sketchObject.layersByConvertingToOutlines()
@@ -61,6 +67,12 @@ export default function() {
     let duplicatedLayers = []
     layers.forEach(layer => {
       let dup = layer.duplicate()
+
+      let symbolLayers = sketch.find('SymbolInstance', dup)
+      symbolLayers.forEach(symbolLayer => {
+        symbolLayer.detach({ recursively: true })
+      })
+
       let textLayers = sketch.find('Text', dup)
       textLayers.forEach(textLayer => {
         textLayer.sketchObject.layersByConvertingToOutlines()
